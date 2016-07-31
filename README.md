@@ -1,15 +1,13 @@
-# This project using FLUX + REACT
+# This project using REACT.JS
 
-##  Install
-
-## Run server
-
-
+## RUN
+```
+  npm install
+  npm run dev
+```
 ## Imports
 - **React** || Pega tudo no PACOTE _REACT_
 - **ReactDOM** || Usado para criar o VIRTUAL DOM
-
-
 
 ## Functions
 
