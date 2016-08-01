@@ -7,6 +7,8 @@ export default class Contador extends React.Component{
     this.state = {
       contador: 0,
     };
+    this.increment = this.increment.bind(this);
+    this.decrement = this.decrement.bind(this);
   }
   increment(){
     this.setState({
@@ -23,8 +25,8 @@ export default class Contador extends React.Component{
       <div>
         <h1>{this.state.contador}</h1>
         <div>
-          <button onClick={this.increment.bind(this)}>+</button>
-          <button onClick={this.decrement.bind(this)}>-</button>
+          <button onClick={this.increment}>+</button>
+          <button onClick={this.decrement}>-</button>
         </div>
       </div>
     );

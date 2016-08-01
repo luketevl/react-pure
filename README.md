@@ -1,13 +1,14 @@
 # This project using REACT.JS
 
-## RUN
+## RUN the **learncodeacademy** code
 ```
-  npm install
-  npm run dev
 ```
+
 ## Imports
 - **React** || Pega tudo no PACOTE _REACT_
 - **ReactDOM** || Usado para criar o VIRTUAL DOM
+- **ReactRouter** || Usado para _ROTAS_ top para _SPA_
+  - **History** || Usado para _HISTORICO_ de navegação
 
 ## Functions
 
@@ -58,7 +59,8 @@
   - Ter um _unico_ arquivo app.js(bootstrap) que contém o _COMPONENTE_ PRINCIPAL da app _ROOT COMPONENT_
 - _JSX_ PRECISA de uma TAG que ENVOLVA TODO O HTML
 - **constructor** sobreescreve constructor padrao, chamar **super()**
-- Para usar variaveis no JSX tem que ter o **{}**
+- Para _usar variaveis_ no JSX tem que ter o **{}**
+- Para _componentes_ com _MAIS DE UM ELEMENTO_ no return devem estar entre algum _ELEMENTO PAI_
 - Separar o CSS INLINE COM virgula **,**
 - CSS INLINE nome das propriedades **não** devem receber **-**, _marginRight_
 - **Proptype** || Serve para saber como usar o componente, define do que ele precisa para funcionar

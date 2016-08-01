@@ -9,11 +9,12 @@ export default class Partida extends React.Component{
 
   constructor(){
     super();
+    this.handleClick = this.handleClick.bind(this);
   }
   render(){
     return (
       <div>
-        <button onClick={this.handleClick.bind(this)}>Gol!!</button>
+        <button onClick={this.handleClick}>Gol!!</button>
       </div>
         );
   }
