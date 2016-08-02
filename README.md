@@ -1,5 +1,9 @@
 # This project using REACT.JS
 
+## Links
+- https://www.youtube.com/watch?v=DiLVAXlVYR0
+- https://www.youtube.com/channel/UCVTlvUkGslCV_h-nSAId8Sw
+
 ## RUN the **learncodeacademy** code
 ```
 ```
