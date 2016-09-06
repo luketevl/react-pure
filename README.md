@@ -3,6 +3,8 @@
 ## Links
 - https://www.youtube.com/watch?v=DiLVAXlVYR0
 - https://www.youtube.com/channel/UCVTlvUkGslCV_h-nSAId8Sw
+- https://blog.coderockr.com/gerenciando-rotas-com-react-router-ed44ce1e8753#.no8infsvj
+
 
 ## RUN the **learncodeacademy** code
 ```
