@@ -96,3 +96,4 @@ this.state;
 # OBSERVATIONS
 - **ATTENTION*
 	- _Don't use_ **class**, _use **className**
+- **PRESENTATION** have focus in **view** and **CONTAINER** have focus in **logic**
