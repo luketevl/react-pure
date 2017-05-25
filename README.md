@@ -29,7 +29,7 @@
     - **render()** || _Renderiza_ o componente ao chama-lo
   - Atributos
     - **state** || Define o comportamento _ATUAL_ do componente
-```
+```javascript
   export default class MyComponent extends React.Component{
     constructor(){
       this.state = {obj}
@@ -38,7 +38,7 @@
   }
 ```
 - **Usar** um componente || Deve ser chamado da seguinte forma.
-```
+```javascript
   import MyComponent from 'path/MyComponent';
 ```
 - **PROPRIEDADES** || Funciona como atributos html
@@ -46,13 +46,26 @@
   - Para _ACESSAR_ usa-se o **this.props**
 - **propTypes** || Usar _depois_ da declaração da classe
   - Define que é _obrigatório_
-```
+```javascript
   Component.propTypes = { obj: React.PropTypes.type.isRequired};
 ```  
 
 - **VALORES PADROES** || Define os _valores_ padroes para _propriedades_ não informadas
-```
+```javascript
   Component.defaultProps = {obj};
+```
+
+# CONTEXT
+- Set **context** | Not best pratice
+```javascript
+this.context.name;
+```
+- Define the expected context
+```javascript
+class App{}
+App.contextTypes = {
+  store: React.PropTypes.object.isRequired
+}
 ```
 
 ## Observations
