@@ -68,6 +68,25 @@ App.contextTypes = {
 }
 ```
 
+
+# REACT IN SERVER
+
+## ELECTRODE
+> **Render** react in **server** side Create by walmart
+
+- Install
+```shell
+npm install yo gulp generator-electrode -g
+```
+- Init
+```shell
+yo electrode
+```
+
+
+## NEXT JS
+
+
 ## Observations
 - Use _transpile babel_
 - Use _webpack_
