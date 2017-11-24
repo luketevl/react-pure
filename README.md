@@ -54,6 +54,12 @@
 ```javascript
   Component.defaultProps = {obj};
 ```
+### STATELESS FUNCTIONAL COMPONENTS
+- Se um componente estiver usando **apenas** o método **render** para exibir conteúdo, então ele pode ser convertido em um **componente funcional sem estado**.
+- Links
+  - https://www.reactenlightenment.com/react-state/8.4.html
+  - https://tylermcginnis.com/functional-components-vs-stateless-functional-components-vs-stateless-components/
+
 
 # CONTEXT
 - Set **context** | Not best pratice
