@@ -8,6 +8,8 @@
 - https://github.com/css-modules/css-modules
 - https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en
 - https://reactjs.org/docs/error-boundaries.html
+- https://reactjs.org/docs/higher-order-components.html
+
 
 # FUNCTIONAL COMPONENTS
 - Don`t save **states**
@@ -25,7 +27,15 @@
 # Class (Statefull) Components
 - Have **state**
 - Have **constructor**
+
 # Container Components vs. Presentational Components
+
+# Higher-Order Components (HOC)
+- A higher-order component (HOC) is an advanced technique in React for reusing component 
+logic
+- Whereas a component transforms props into UI, a higher-order component transforms a component into another component.
+
+HOCs are common in third-party React libraries, such as Redux’s connect
 
 ![Stateless VS Statefull](https://i.imgur.com/VkJM4Aw.png)
 
@@ -195,6 +205,24 @@ componentDidUpdate(){}
 
 ![Rending & Updates](https://i.imgur.com/npyLBhG.png)
 ![How react updates the DOM](https://i.imgur.com/3jsnFhN.png)
+
+
+# REF
+- Reference by element
+- Only avaible in **state full components**
+```js
+import React, { Component } from 'react';
+export default class Input extends Component{
+  render(){
+    return (
+      <input 
+        type="text"
+        ref={input => this.inputElement = input.value; }
+      />
+    )
+  }
+}
+```
 
 # OBSERVATION
 - **Constructor**
