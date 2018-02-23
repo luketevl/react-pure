@@ -9,7 +9,8 @@
 - https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en
 - https://reactjs.org/docs/error-boundaries.html
 - https://reactjs.org/docs/higher-order-components.html
-
+- https://reactjs.org/docs/typechecking-with-proptypes.html
+- https://reactjs.org/docs/refs-and-the-dom.html
 
 # FUNCTIONAL COMPONENTS
 - Don`t save **states**
