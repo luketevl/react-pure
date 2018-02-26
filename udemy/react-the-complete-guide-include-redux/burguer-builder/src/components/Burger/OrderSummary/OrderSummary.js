@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
-import Aux from '../../../hoc/Aux';
+import Aux from '../../../hoc/Aux/Aux';
 import Button from '../../UI/Button/Button'
 
 export default class OrderSummary extends Component {
+  componentDidUpdate(){
+    console.log('[OrderSummary] componentDidUpdate')
+  }
   render(){
     const ingredientsSummary = Object.keys(this.props.ingredients)
     .map( igKey => (

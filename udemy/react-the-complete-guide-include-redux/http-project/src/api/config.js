@@ -1,0 +1,1 @@
+export const URL_BD = 'https://burger-builder-157.firebaseio.com/';

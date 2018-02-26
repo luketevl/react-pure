@@ -11,6 +11,8 @@
 - https://reactjs.org/docs/higher-order-components.html
 - https://reactjs.org/docs/typechecking-with-proptypes.html
 - https://reactjs.org/docs/refs-and-the-dom.html
+- https://github.com/axios/axios#interceptors
+
 
 # FUNCTIONAL COMPONENTS
 - Don`t save **states**
@@ -224,7 +226,25 @@ export default class Input extends Component{
   }
 }
 ```
+# PERFORMANCE
+- Validate `componentWillUpdate` check if the props/state not equals
+```js
+  shouldComponentUpdate(nextProps, mextState){
+      return nextProps.show !== this.props.show;
+    }
+```
+
+# HTTP
+![Http requests](https://i.imgur.com/8SQth7a.png)
+
+
+# ROUTING
+- React dont have routing in your core
+![Routing in SPA](https://i.imgur.com/rlUGdiO.png)
 
 # OBSERVATION
 - **Constructor**
   - **Required** **super**
+- **AXIOS**
+  - Cool work with **instances**
+  - Good **intercptors** and **defaults**
