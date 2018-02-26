@@ -241,6 +241,119 @@ export default class Input extends Component{
 # ROUTING
 - React dont have routing in your core
 ![Routing in SPA](https://i.imgur.com/rlUGdiO.png)
+- **Route** | Create route
+  - **path** as uri
+    - **:paramName** | Pass parameter
+      - Get the params `this.props.match.params.paramName`
+  - **exact** check the complete url and match is url as _exactly_ equal the **path**
+  - **component** render specify _component_
+```js
+<Route path="/" exact render={()=><h1>test</h1>} />
+<Route path="/" render={()=><h1>test</h1>} />
+<Route path="/" component={<Component />} />
+<Route path="/:paramName" exact component={<Component />} />
+```
+- **Switch** | Dont load router in roter.
+```js
+<Switch>
+  <Route path="/" exact component={<Component />} />
+  <Route path="/:paramName" exact component={<Component />} />
+</Switch>
+```
+
+- **Link** | Create link to specify router, **don't reload all page**
+  - **to** | String or object
+    - **pathname** | the uri
+    - **hash** | id to anchor
+    - **search** | 
+```js
+<Link to="/">Home</Link>
+<Link to={{
+  pathname: '/path',
+  hash: '#anchor',
+  search: '?querystring'
+}}>Home</Link>
+``` 
+- **withRouter** | **HOC** Pass the props of **route** to component
+```js
+export default withRouter(component);
+```
+
+## RELATIVE AND ABSOLUTE PATH
+```js
+<Link to={{
+  pathname: this.props.match.url +'/path', // absolute
+  pathname: '/path', // relative
+}}>Home</Link>
+``` 
+
+## Styling Active Route
+- **NavLink** 
+  - **exact** check the complete url and match is url as _exactly_ equal the **path**
+  - **activeClassName** | Define the class to active link, default is **active**
+  - **activeStyle** | Define the inline style to active link
+```js
+import {NavLink} from 'react-route-dom';
+<NavLink 
+activeClassName="active" 
+activeStyle={{
+  color: '#f98999'
+}}
+exact 
+to="/">Home</NavLink>
+```
+
+## Navigation programmaticaly
+  - Dont replace to *current** HISTORY, adde new in stack
+```js
+this.props.history.push({
+      pathname: `/${id}`
+})
+```
+- Replace the *current** HISTORY
+```js
+this.props.history.replace({
+      pathname: `/${id}`
+})
+```
+- **Redirect** | Replace to *current** HISTORY
+  - **to**
+  - **from**
+```js
+<Redirect to="/a" from="/" />
+```
+
+## GUARDS
+
+# SPLIT CODE
+- Load component on **demand(chunks)**
+```js
+import React, { Component } from 'react';
+const asyncComponent =(importComponent) => {
+
+  return class extends Component{
+    state = {
+      component: null
+    }
+    componentDidMount(){
+      importComponent()
+        .then(cmp => {
+          this.setState({component: cmp.default});
+        });
+    }
+    render(){
+      const C = this.state.component;
+      return C ?  <C {...this.props} /> : null;
+    }
+  }
+}
+
+export default asyncComponent;
+```
+
+
+
+
 
 # OBSERVATION
 - **Constructor**
@@ -248,3 +361,5 @@ export default class Input extends Component{
 - **AXIOS**
   - Cool work with **instances**
   - Good **intercptors** and **defaults**
+  - *ROUTER**
+    - In **switch** the **router** **ORDER** ARE **IMPORTANT**
