@@ -239,6 +239,12 @@ export default class Input extends Component{
 
 
 # ROUTING
+- Added `BrowserRouter`in main component
+```js
+<BrowserRouter>
+  <App />
+</BrowserRouter>
+```
 - React dont have routing in your core
 ![Routing in SPA](https://i.imgur.com/rlUGdiO.png)
 - **Route** | Create route
@@ -351,6 +357,16 @@ const asyncComponent =(importComponent) => {
 export default asyncComponent;
 ```
 
+- Config the **basepath**
+```js
+<BrowserRouter basename="/my-app">
+</BrowserRouter>
+```
+
+![Server render](https://i.imgur.com/YX9jqVo.png)
+
+
+# VALIDATION METHOD
 
 
 
@@ -363,3 +379,12 @@ export default asyncComponent;
   - Good **intercptors** and **defaults**
   - *ROUTER**
     - In **switch** the **router** **ORDER** ARE **IMPORTANT**
+- REACT 16 | **INPUT TYPE**
+ - Pass props in **lowercase**
+```js
+// INCORRECT
+<Component inputType=""/>
+
+// CORECT
+<Component inputtype=""/>
+```

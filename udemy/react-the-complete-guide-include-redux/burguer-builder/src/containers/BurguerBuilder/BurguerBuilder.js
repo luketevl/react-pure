@@ -104,30 +104,17 @@ class BurguerBuilder extends Component{
     })
   }
   purchaseContinueHandler(){
-    this.setState({loading: true});
-    const order = {
-      ingredients: this.state.ingredients,
-      price: this.state.totalPrice,
-      customer: {
-        name: 'lukete',
-        address: {
-          street: 'Nova Ponte',
-          zipCode: '30550720',
-          country: 'Brazil'
-        },
-        email: 'lukete@gmail.com'
-      },
-      deliveryMethod: 'fastest'
-    }
-    axios.post('/orders.json', order)
-      .then(response => {
-        this.setState({loading: false, purchasing: false});
-        console.log(response);
-      }).catch(err => {
-          this.setState({loading: false, purchasing: false});
-          console.log(err)
-        }
-      );
+  
+  const queryParams = [];
+  for(let i in this.state.ingredients){
+    queryParams.push(`${encodeURIComponent(i)}=${encodeURIComponent(this.state.ingredients[i])}`);
+  }
+  queryParams.push(`price=${this.state.totalPrice}`);
+  const queryString = queryParams.join('&');
+    this.props.history.push({
+      pathname: '/checkout',
+      search: `?${queryString}`
+    });
   }
 
   render(){
@@ -153,7 +140,7 @@ class BurguerBuilder extends Component{
         
         {this.state.ingredients ? (
           <Aux>
-            <Burger {...this.state}/>
+            <Burger ingredients={this.state.ingredients} />
             <BuildControls 
             disabled={disableInfo} 
             price={this.state.totalPrice}
