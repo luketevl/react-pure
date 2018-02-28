@@ -18,6 +18,11 @@ export default class ContactData extends Component{
             placeholder: 'Your Name'
           },
           value: '',
+          validation: {
+            required: true
+          },
+          valid: false,
+          touched: false,
         },
         street: {
           elementType: 'input',
@@ -26,6 +31,11 @@ export default class ContactData extends Component{
             placeholder: 'Your Street'
           },
           value: '',
+          validation: {
+            required: true
+          },
+          valid: false,
+          touched: false,
         },
         zipCode: {
           elementType: 'input',
@@ -34,6 +44,13 @@ export default class ContactData extends Component{
             placeholder: 'Your ZipCode'
           },
           value: '',
+          validation: {
+            required: true,
+            minLenght: 6,
+            maxLenght: 6,
+          },
+          valid: false,
+          touched: false,
         },
         country: {
           elementType: 'input',
@@ -42,6 +59,11 @@ export default class ContactData extends Component{
             placeholder: 'Country'
           },
           value: '',
+          validation: {
+            required: true
+          },
+          valid: false,
+          touched: false,
         },
         email: {
           elementType: 'input',
@@ -50,6 +72,11 @@ export default class ContactData extends Component{
             placeholder: 'Your E-mail'
           },
           value: '',
+          validation: {
+            required: true
+          },
+          valid: false,
+          touched: false,
         },
         deliveryMethod: {
           elementType: 'select',
@@ -69,14 +96,18 @@ export default class ContactData extends Component{
               },
             ]
           },
-          value: '',
+          value: 'fastest',
+          valid: true,
+          validation: {
+          },
         },
       },
-      loading: false
+      loading: false,
+      formValid: false
     };
     this.orderHandler = this.orderHandler.bind(this);
     this.inputChangedHandler = this.inputChangedHandler.bind(this);
-
+    // this.checkValidity = this.checkValidity.bind(this);
   }
 
   orderHandler(event){
@@ -113,13 +144,35 @@ export default class ContactData extends Component{
 
     const updateFormElement = {
       ...updateOrderForm[inputIdentify],
-      value: event.target.value
+      value: event.target.value,
+      valid: this.checkValidity(event.target.value, updateOrderForm[inputIdentify].validation),
+      touched: true
     }
-    
+    let formIsValid = true;
+    for(let inputIdentify in updateOrderForm){
+      formIsValid = updateOrderForm[inputIdentify].valid && formIsValid;
+    }
     updateOrderForm[inputIdentify] = updateFormElement;
     this.setState({
-      orderForm: updateOrderForm
+      orderForm: updateOrderForm,
+      formValid: formIsValid
     })
+  }
+
+  checkValidity(value, rules){
+    let isValid = true;
+    if(!rules) return true;
+    if(rules.required){
+      isValid = value.trim() !== '' && isValid;
+    }
+    // if(rules.minLenght){
+    //   isValid = value.lenght >= rules.minLenght && isValid;
+    // }
+    // if(rules.maxLenght){
+    //   isValid = value.lenght <= rules.maxLenght && isValid;
+    // }
+
+    return isValid;
   }
   render(){
     const fields = [];
@@ -128,7 +181,9 @@ export default class ContactData extends Component{
       console.log(key);
       fields.push({
         id: key,
-        config: this.state.orderForm[key],
+        config:{
+          ...this.state.orderForm[key]
+        },
       })
     }
     console.log(fields);
@@ -144,13 +199,16 @@ export default class ContactData extends Component{
               {fields.map(element => (
                 <Input 
                 key={element.id}
+                touched={element.config.touched}
+                invalid={!element.config.valid}
+                shouldValidate={element.config.validation}
                 elementType={element.config.elementType}
                 elementConfig={element.config.elementConfig}
                 value={element.config.value}
                 changed={event => this.inputChangedHandler(event, element.id)}
                  />
               ))}
-              <Button btnType="Success" clicked={()=>{}}>ORDER</Button>
+              <Button btnType="Success" disabled={!this.state.formValid} clicked={()=>{}}>ORDER</Button>
             </form>
           </div>
         }

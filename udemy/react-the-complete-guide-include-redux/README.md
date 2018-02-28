@@ -12,6 +12,11 @@
 - https://reactjs.org/docs/typechecking-with-proptypes.html
 - https://reactjs.org/docs/refs-and-the-dom.html
 - https://github.com/axios/axios#interceptors
+- https://validatejs.org/
+- https://react.rocks/tag/Validation
+- https://www.npmjs.com/package/react-validation
+- https://github.com/christianalfoni/formsy-react
+
 
 
 # FUNCTIONAL COMPONENTS
