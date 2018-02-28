@@ -16,8 +16,11 @@
 - https://react.rocks/tag/Validation
 - https://www.npmjs.com/package/react-validation
 - https://github.com/christianalfoni/formsy-react
-
-
+- Tools Tests 
+  - https://facebook.github.io/jest/
+  - https://github.com/airbnb/enzyme
+  - https://www.npmjs.com/package/react-test-renderer
+  - https://github.com/airbnb/enzyme
 
 # FUNCTIONAL COMPONENTS
 - Don`t save **states**
@@ -373,8 +376,59 @@ export default asyncComponent;
 
 # VALIDATION METHOD
 
+# TESTING
+![What test](https://i.imgur.com/7CXXP7b.png)
+![Why Testing?](https://i.imgur.com/tP7dvmC.png)
 
+## Tools
+![Testing Tools](https://i.imgur.com/xBlumDP.png)
 
+## What to test
+![What to test](https://i.imgur.com/zavlHYC.png)
+
+## Enzyme
+### Shallow
+- https://github.com/airbnb/enzyme/blob/master/docs/api/shallow.md
+> Shallow rendering is useful to constrain yourself to testing a component as a unit, and to ensure that your tests aren't indirectly asserting on behavior of child components.
+
+As of Enzyme v3, the shallow API **does call React lifecycle methods** such as **componentDidMount** and **componentDidUpdate**
+
+- **Creating** **components** test
+```js
+import React from 'react';
+import { configure, shallow } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
+import NavigationItems from './NavigationItems';
+import NavigationItem from './NavigationItem/NavigationItem';
+configure({
+  adapter: new Adapter()
+})
+describe('<NavigationItems />', () => {
+  let wrapper;
+  beforeEach(() => {
+    wrapper = shallow(<NavigationItems />);
+  })
+  it('should render to <NavigationItem /> if not authenticated', () =>{
+    const wrapper = shallow(<NavigationItems />);
+    expect(wrapper.find(NavigationItem)).toHaveLength(2);
+  })
+})
+```
+- **Creating** **containers** test
+  - **EXPORT** the component **class** 
+
+- **Change PROPS**
+  - use **setProps**
+```js
+let wrapper;
+beforeEach(() => {
+  wrapper = shallow(<NavigationItems />);
+})
+it('should render to <NavigationItem /> if authenticated', () => {
+  wrapper.setProps({isAuthenticated: true});
+  expect(wrapper.find(NavigationItem)).toHaveLength(3);
+})
+```
 
 # OBSERVATION
 - **Constructor**
