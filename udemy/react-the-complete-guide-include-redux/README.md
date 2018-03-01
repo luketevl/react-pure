@@ -16,11 +16,20 @@
 - https://react.rocks/tag/Validation
 - https://www.npmjs.com/package/react-validation
 - https://github.com/christianalfoni/formsy-react
+- https://github.com/reactjs/react-transition-group
 - Tools Tests 
   - https://facebook.github.io/jest/
   - https://github.com/airbnb/enzyme
   - https://www.npmjs.com/package/react-test-renderer
   - https://github.com/airbnb/enzyme
+
+- Examples
+  - https://react.rocks/
+  - https://github.com/facebook/react/wiki/Sites-Using-React
+- Other libs
+  - https://www.gatsbyjs.org/ (static site generator)
+
+
 
 # FUNCTIONAL COMPONENTS
 - Don`t save **states**
@@ -430,6 +439,83 @@ it('should render to <NavigationItem /> if authenticated', () => {
 })
 ```
 
+
+# ANIMATIONS
+
+## REACT TRANSITION GROUP
+- https://github.com/reactjs/react-transition-group
+
+```js
+import Transition from 'react-transition-group';
+```
+
+## CSS TRANSITIONS
+- Modal
+```css
+.Modal {
+    position: fixed;
+    z-index: 200;
+    border: 1px solid #eee;
+    box-shadow: 0 2px 2px #ccc;
+    background-color: white;
+    padding: 10px;
+    text-align: center;
+    box-sizing: border-box;
+    top: 30%;
+    left: 25%;
+    width: 50%;
+    transition: all .3s ease-out;
+}
+
+.ModalOpen{
+    opacity: 1;
+    transform: translateY(0);
+}
+.ModalClosed{
+    opacity: 0;
+    transform: translateY(-100%);
+}
+
+/* OR */
+
+.ModalOpen{
+    animation: openModal .4s ease-out forwards;
+}
+.ModalClosed{
+    animation: closeModal .4s ease-out forwards;
+}
+
+@keyframes openModal{
+    0%{
+        opacity: 0;
+        transform: translateY(-100%);    
+    }
+    50%{
+        opacity: 1;
+        transform: translateY(90%);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes closeModal{
+    0%{
+        opacity: 1;
+        transform: translateY(0);
+    }
+    50%{
+        opacity: .8;
+        transform: translateY(60%);
+    }
+    100%{
+        opacity: 0;
+        transform: translateY(-100%);    
+    }
+}
+```
+
 # OBSERVATION
 - **Constructor**
   - **Required** **super**
@@ -446,4 +532,18 @@ it('should render to <NavigationItem /> if authenticated', () => {
 
 // CORECT
 <Component inputtype=""/>
+```
+- **Animation**
+  - Render element only if necessary, example:
+```js
+render(){
+  return(
+    <div>
+      {this.state.modalIsOpen &&
+          <Modal show={this.state.modalIsOpen} closed={this.closeModal}/>
+      }
+    </div>
+
+  )
+}
 ```
