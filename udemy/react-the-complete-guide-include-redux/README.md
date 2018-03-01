@@ -441,12 +441,24 @@ it('should render to <NavigationItem /> if authenticated', () => {
 
 
 # ANIMATIONS
-
+- https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Animations/Using_CSS_animations
+- https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Transitions/Using_CSS_transitions
 ## REACT TRANSITION GROUP
 - https://github.com/reactjs/react-transition-group
 
+## REACT MOTION
+- https://github.com/chenglou/react-motion
+
+## REACT MOVE
+- https://github.com/react-tools/react-move
+
+## ROUTE ANIMATION
+- https://github.com/maisano/react-router-transition
+- https://github.com/reactjs/react-transition-group
 ```js
-import Transition from 'react-transition-group';
+import Transition from 'react-transition-group/Transition';
+import CSSTransition from 'react-transition-group/CSSTransition';
+import TransitionGroup from 'react-transition-group/TransitionGroup';
 ```
 
 ## CSS TRANSITIONS
