@@ -528,6 +528,18 @@ import TransitionGroup from 'react-transition-group/TransitionGroup';
 }
 ```
 
+# DEPLOY
+## Steps
+### Step 1
+- Check(& Adjust) the **basepath**
+![Check basepath](https://i.imgur.com/gTB2fGR.png)
+
+
+### Step 2
+- Build & Optimize Project
+![Build & Optimize](https://i.imgur.com/T56EO3t.png)
+
+
 # OBSERVATION
 - **Constructor**
   - **Required** **super**
