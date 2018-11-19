@@ -61,7 +61,7 @@
   - https://tylermcginnis.com/functional-components-vs-stateless-functional-components-vs-stateless-components/
 
 
-# CONTEXT
+# (OLD)CONTEXT 
 - Set **context** | Not best pratice
 ```javascript
 this.context.name;
@@ -73,7 +73,49 @@ App.contextTypes = {
   store: React.PropTypes.object.isRequired
 }
 ```
+# (NEW)CONTEXT 
+- API de **contexto**. usado para definir **propriedades GLOBAIS**
+  - Possui **duas funções**
+   - **Provider** da um valor para um váriavel de contexto
+   - **Consumer** utiliza valor para um váriavel de contexto
+    
+    
+- **Criando** o contexto
+```js
+import React from 'react';
+export default React.createContext({
+  theme: 'teste'
+});
+```
+- **Utilizando** contexto
+```js
+import ThemeContext from './components/context';
+import * as themes from './styles/themes';
 
+class App extends Component{
+  state = {
+    theme: themes.dark
+  }
+  
+  toogleTheme = () => {
+  }
+  
+  render(){
+    return(
+      <div>
+      <ThemeContext.Provider value={this.state}>
+        <ThemeSwitcher toggleTheme={this.toggleTheme} />
+        <ThemeContext.Consumer>
+        {theme => (
+          <TodoList theme />
+        )}
+
+        </ThemeContext.Consumer>
+      </ThemeContext.Provider>
+      </div>
+    )
+  }
+```
 
 # REACT IN SERVER
 
